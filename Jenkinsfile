@@ -6,7 +6,7 @@ pipeline {
                 sh "ls"
                 sh "pwd"
                 sh "mkdir pipeline-dir"
-                sh "cd pipeline-dir"
+                sh "cd pipeline-dir && ls"
                 sh "ls"
             }
         }
