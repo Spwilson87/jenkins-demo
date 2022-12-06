@@ -15,10 +15,16 @@ pipeline {
             }
         }
         stage('docker  stage'){
-            steps{
+            steps {
                 sh "docker run -d -p 80:80 nginx"
                 sh "curl localhost"
-                sh "exit 1"
+                sh "chmod +x docker-remove.sh"
+                sh "./docker-remove.sh"
+            }
+        }
+        stage('clean workspace'){
+            steps {
+                cleanWs()
             }
         }
     }
