@@ -5,9 +5,13 @@ pipeline {
             steps {
                 sh "ls"
                 sh "pwd"
-                sh "mkdir pipeline-dir"
-                sh "cd pipeline-dir && ls"
-                sh "ls"
+
+            }
+        }
+        stage('build stage'){
+            steps {
+                sh "chmod +x buildscript.sh"
+                sh "./buildscript.sh"
             }
         }
     }
