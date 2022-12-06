@@ -15,9 +15,11 @@ pipeline {
             }
         }
         stage('docker  stage'){
-            sh "docker run -d -p 80:80 nginx"
-            sh "curl localhost"
-            sh "exit 1"
+            steps{
+                sh "docker run -d -p 80:80 nginx"
+                sh "curl localhost"
+                sh "exit 1"
+            }
         }
     }
 }
