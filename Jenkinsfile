@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Pipeline Stages'){
+        stage('stage one'){
             steps {
                 sh "ls"
                 sh "pwd"
@@ -13,6 +13,11 @@ pipeline {
                 sh "chmod +x buildscript.sh"
                 sh "./buildscript.sh"
             }
+        }
+        stage('docker  stage'){
+            sh "docker run -d -p 80:80 nginx"
+            sh "curl localhost"
+            sh "exit 1"
         }
     }
 }
